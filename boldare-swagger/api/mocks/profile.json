@@ -1,0 +1,50 @@
+{
+  "person": {
+    "name": "Ron",
+    "surname": "Swanson",
+    "city": "Pawnee",
+    "country": "USA"
+  },
+  "stats": {
+    "likes": 121,
+    "following": 723,
+    "followers": 4433
+  },
+  "comments": [
+    {
+      "id": "1",
+      "name": "Andy",
+      "surname": "Dwyer",
+      "text": "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. ",
+      "date": 1542464142000
+    },
+    {
+      "id": "2",
+      "name": "Leslie",
+      "surname": "Knope",
+      "text": "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. ",
+      "date": 1542464142000
+    },
+    {
+      "id": "3",
+      "name": "Ann",
+      "surname": "Perkins",
+      "text": "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. ",
+      "date": 1542464142000
+    },
+    {
+      "id": "4",
+      "name": "Chris",
+      "surname": "Traeger",
+      "text": "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. ",
+      "date": 1542464142000
+    },
+    {
+      "id": "5",
+      "name": "Tom",
+      "surname": "Haverford",
+      "text": "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. ",
+      "date": 1542464142000
+    }
+  ]
+}

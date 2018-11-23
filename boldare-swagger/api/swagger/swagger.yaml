@@ -1,0 +1,170 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Hello World App
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /user:
+    x-swagger-router-controller: controller
+    get:
+      description: Returns user data
+      operationId: getUser
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /user/follow:
+    x-swagger-router-controller: controller
+    put:
+      description: Changes follow to user
+      operationId: updateFollow
+      parameters:
+        - name: follow
+          description: Follow value
+          in: header
+          type: string
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /user/like:
+    x-swagger-router-controller: controller
+    put:
+      description: Changes like to user
+      operationId: updateLike
+      parameters:
+        - name: like
+          description: Like value
+          in: header
+          type: string
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /profile:
+    x-swagger-router-controller: controller
+    get:
+      description: Returns profile
+      operationId: getProfile
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Profile"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /profile/comment:
+    x-swagger-router-controller: controller
+    post:
+      description: Add a comment to profile
+      operationId: addComment
+      parameters:
+        - name: comment
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Comment'
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Comment'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+definitions:
+  User:
+    properties:
+      person:
+        $ref: "#/definitions/Person"
+      liked:
+        type: boolean
+      followed:
+        type: boolean
+  Profile:
+    properties:
+      person:
+        $ref: "#/definitions/Person"
+      stats:
+        $ref: "#/definitions/Stats"
+      comments:
+        type: array
+        items:
+          $ref: "#/definitions/Comment"
+  Person:
+    properties:
+      name:
+        type: string
+      surname:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+  Stats:
+    properties:
+      likes:
+        type: number
+      following:
+        type: number
+      followers:
+        type: number
+  Comment:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      surname:
+        type: string
+      text:
+        type: string
+      date:
+        type: number
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

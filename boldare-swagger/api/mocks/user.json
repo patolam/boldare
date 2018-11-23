@@ -1,0 +1,10 @@
+{
+  "liked": false,
+  "followed": true,
+  "person": {
+    "name": "Marcin",
+    "surname": "Patoła",
+    "city": "Gdynia",
+    "country": "Poland"
+  }
+}

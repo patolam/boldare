@@ -1,0 +1,11 @@
+<div [ngStyle]="{'width': '100%'}">
+  <app-profile
+    [data]="profileData"
+    [user]="userData"
+    (followChanged)="updateFollow($event)"
+    (likeChanged)="updateLike($event)"
+    (comment)="addComment($event)"
+  ></app-profile>
+</div>
+
+<router-outlet></router-outlet>
