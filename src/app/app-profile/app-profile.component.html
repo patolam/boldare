@@ -1,87 +1,87 @@
 <div class="card main">
 
-  <div class="card">
-    <div id="share" (click)="shareVisible = !shareVisible"></div>
+    <div class="card">
+        <div id="share" (click)="shareVisible = !shareVisible"></div>
 
-    <div id="photo-info">
-      <div id="photo"></div>
-      <div id="info">
-        <div id="name-like">
-          <span>{{ data?.person.name + ' ' + data?.person.surname }}</span>
-          <i (click)="updateLike()"
-             class="material-icons icon"
-             [ngClass]="{'clicked' : user?.liked}">
-            {{ user?.liked ? 'favorite' : 'favorite_border' }}
-          </i>
+        <div id="photo-info">
+            <div id="photo"></div>
+            <div id="info">
+                <div id="name-like">
+                    <span>{{ data?.person.name + ' ' + data?.person.surname }}</span>
+                    <i (click)="updateLike()"
+                       class="material-icons icon"
+                       [ngClass]="{'clicked' : user?.liked}">
+                        {{ user?.liked ? 'favorite' : 'favorite_border' }}
+                    </i>
+                </div>
+                <div id="place">
+                    <span>{{ data?.person.city + ', ' + data?.person.country }}</span>
+                </div>
+            </div>
         </div>
-        <div id="place">
-          <span>{{ data?.person.city + ', ' + data?.person.country }}</span>
+
+        <div id="bar">
+            <div id="counters">
+                <div class="counter">
+                    <span class="number">{{ data?.stats.likes }}</span>
+                    <span class="text">Likes</span>
+                </div>
+                <div class="spacer"></div>
+                <div class="counter">
+                    <span class="number">{{ data?.stats.following }}</span>
+                    <span class="text">Following</span>
+                </div>
+                <div class="spacer"></div>
+                <div class="counter">
+                    <span class="number">{{ data?.stats.followers }}</span>
+                    <span class="text">Followers</span>
+                </div>
+            </div>
+            <button (click)="updateFollow()">
+                {{ user?.followed ? 'UNFOLLOW' : 'FOLLOW' }}
+            </button>
         </div>
-      </div>
+
     </div>
 
-    <div id="bar">
-      <div id="counters">
-        <div class="counter">
-          <span class="number">{{ data?.stats.likes }}</span>
-          <span class="text">Likes</span>
-        </div>
-        <div class="spacer"></div>
-        <div class="counter">
-          <span class="number">{{ data?.stats.following }}</span>
-          <span class="text">Following</span>
-        </div>
-        <div class="spacer"></div>
-        <div class="counter">
-          <span class="number">{{ data?.stats.followers }}</span>
-          <span class="text">Followers</span>
-        </div>
-      </div>
-      <button (click)="updateFollow()">
-        {{ user?.followed ? 'UNFOLLOW' : 'FOLLOW' }}
-      </button>
-    </div>
-
-  </div>
-
-  <div class="card comment-card">
+    <div class="card comment-card">
     <span id="hide" (click)="toggleHidden()">
       {{ (commentsHidden ? 'Show comments' : 'Hide comments') + ' (' + (data?.comments ? data.comments.length : 0) + ')' }}
     </span>
 
-    <div id="comments" *ngIf="!commentsHidden">
-      <div *ngFor="let item of data?.comments" class="comment">
-        <div class="com-photo"></div>
-        <div class="com-content">
-          <div class="com-header">
-            <div class="com-name">
-              {{ item.name + ' ' + item.surname }}
+        <div id="comments" *ngIf="!commentsHidden">
+            <div *ngFor="let item of data?.comments" class="comment">
+                <div class="com-photo"></div>
+                <div class="com-content">
+                    <div class="com-header">
+                        <div class="com-name">
+                            {{ item.name + ' ' + item.surname }}
+                        </div>
+                        <div class="com-date">{{ item.date | ago }}</div>
+                    </div>
+                    <div class="com-text">
+                        {{ item.text }}
+                    </div>
+                </div>
             </div>
-            <div class="com-date">{{ item.date | ago }}</div>
-          </div>
-          <div class="com-text">
-            {{ item.text }}
-          </div>
         </div>
-      </div>
 
-      <div id="com-add">
-        <input #add
-               type="text"
-               placeholder="Add a comment"
-               (keyup)="addComment($event, add)"/>
-      </div>
+        <div id="com-add">
+            <input #add
+                   type="text"
+                   placeholder="Add a comment"
+                   (keyup)="addComment($event, add)"/>
+        </div>
+
     </div>
 
-  </div>
-
-  <div id="transparent" *ngIf="shareVisible">
-    <div class="card share">
-      <div id="share-container">
-        <span>Share</span>
-        <i class="material-icons share-icon" (click)="shareVisible = !shareVisible">{{ 'close' }}</i>
-      </div>
-      <input type="text" value="{{ shareUrl }}"/>
+    <div id="transparent" *ngIf="shareVisible">
+        <div class="card share">
+            <div id="share-container">
+                <span>Share</span>
+                <i class="material-icons share-icon" (click)="shareVisible = !shareVisible">{{ 'close' }}</i>
+            </div>
+            <input type="text" value="{{ shareUrl }}"/>
+        </div>
     </div>
-  </div>
 </div>

@@ -1,6 +1,6 @@
 {
   "liked": false,
-  "followed": true,
+  "followed": false,
   "person": {
     "name": "Marcin",
     "surname": "Patoła",

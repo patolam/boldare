@@ -6,9 +6,9 @@ export interface Person {
 }
 
 export interface Stats {
-  likes: number;
-  following: number;
-  followers: number;
+  likes?: number;
+  following?: number;
+  followers?: number;
 }
 
 export interface Comment {
