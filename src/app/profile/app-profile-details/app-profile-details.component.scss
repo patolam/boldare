@@ -1,4 +1,4 @@
-@import '../../assets/styles/common';
+@import '../../../assets/styles/common';
 
 :host {
   .card {
@@ -36,7 +36,7 @@
 
     cursor: pointer;
 
-    background: url('../../assets/img/share.png') no-repeat center center;
+    background: url('../../../assets/img/share.png') no-repeat center center;
   }
 
   #photo-info {
@@ -50,7 +50,7 @@
       height: 70px;
 
       border-radius: 50%;
-      background: url('../../assets/img/photo.jpg') no-repeat center center;
+      background: url('../../../assets/img/photo.jpg') no-repeat center center;
       background-size: cover;
     }
 
@@ -178,7 +178,7 @@
         height: 40px;
 
         border-radius: 50%;
-        background: url('../../assets/img/photo.jpg') no-repeat center center;
+        background: url('../../../assets/img/photo.jpg') no-repeat center center;
         background-size: cover;
       }
 

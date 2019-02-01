@@ -1,11 +1,1 @@
-<div [ngStyle]="{'width': '100%'}">
-  <app-profile
-    [data]="(data$ | async).profile"
-    [user]="(data$ | async).user"
-    (followChanged)="updateFollow($event)"
-    (likeChanged)="updateLike($event)"
-    (comment)="addComment($event)"
-  ></app-profile>
-</div>
-
 <router-outlet></router-outlet>

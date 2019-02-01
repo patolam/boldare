@@ -1,0 +1,9 @@
+<div [ngStyle]="{'width': '100%'}">
+    <app-profile-details
+            [data]="(data$ | async).profile"
+            [user]="(data$ | async).user"
+            (followChanged)="updateFollow($event)"
+            (likeChanged)="updateLike($event)"
+            (comment)="addComment($event)"
+    ></app-profile-details>
+</div>

@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Follow, FollowSuccess, Like, LikeSuccess, LoadUserSuccess, UserActionTypes} from '../actions/client.actions';
 import {exhaustMap, map} from 'rxjs/operators';
 import {Action} from '@ngrx/store';
-import {UserService} from '../../../data/services/user.service';
+import {UserService} from '../../../shared/data/services/user.service';
 import {LoadProfile} from '../actions/profile.actions';
 
 @Injectable()

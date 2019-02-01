@@ -1,4 +1,4 @@
-import {Person, Profile, Stats, Comment} from '../../../data/model';
+import {Person, Profile, Stats, Comment} from '../../../shared/data/model';
 import {ProfileActions, ProfileActionTypes} from '../actions/profile.actions';
 
 export const initialState: Profile = {

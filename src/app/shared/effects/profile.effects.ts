@@ -4,9 +4,9 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {exhaustMap, map} from 'rxjs/operators';
 import {Action} from '@ngrx/store';
-import {ProfileService} from '../../../data/services/profile.service';
+import {ProfileService} from '../../../shared/data/services/profile.service';
 import {AddComment, AddCommentSuccess, LoadProfileSuccess, ProfileActionTypes} from '../actions/profile.actions';
-import {Comment} from '../../../data/model';
+import {Comment} from '../../../shared/data/model';
 
 @Injectable()
 export class ProfileEffects {

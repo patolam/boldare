@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Profile, User} from '../../data/model';
+import {Profile, User} from '../../../shared/data/model';
 
 const ENTER_KEY = 'Enter';
 
 @Component({
-    selector: 'app-profile',
-    templateUrl: './app-profile.component.html',
-    styleUrls: ['./app-profile.component.scss']
+    selector: 'app-profile-details',
+    templateUrl: './app-profile-details.component.html',
+    styleUrls: ['./app-profile-details.component.scss']
 })
-export class AppProfileComponent {
+export class AppProfileDetailsComponent {
     @Input()
     data: Profile;
 

@@ -12,7 +12,6 @@ export interface Stats {
 }
 
 export interface Comment {
-  id?: string;
   name?: string;
   surname?: string;
   text?: string;
@@ -29,4 +28,10 @@ export interface User {
   liked?: boolean;
   followed?: boolean;
   person?: Person;
+}
+
+export interface Auth {
+  id?: string;
+  email?: string;
+  token?: string;
 }
