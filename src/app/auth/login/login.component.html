@@ -1,3 +1,20 @@
-<p (click)="login()">
-  login works!
-</p>
+<form (ngSubmit)="login(name.value, password.value)">
+    <div>
+        <label for="name">Login</label>
+        <input id="name"
+               type="text"
+               name="name"
+               #name
+               required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password"
+               name="password"
+               type="password"
+               #password
+               required>
+    </div>
+
+    <button type="submit">Login</button>
+</form>

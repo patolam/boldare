@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import {EffectsModule} from '@ngrx/effects';
     ],
     imports: [
         BrowserModule,
+        FormsModule,
         AppRoutingModule,
         HttpClientModule,
         StoreModule.forRoot({}),
