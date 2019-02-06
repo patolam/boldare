@@ -26,17 +26,28 @@
     margin-top: 10px;
   }
 
-  #share {
+  .logout, #share {
     width: 15px;
     height: 15px;
 
     position: absolute;
+
+    cursor: pointer;
+  }
+
+  #share {
     top: 10px;
     right: 10px;
 
-    cursor: pointer;
-
     background: url('../../../assets/img/share.png') no-repeat center center;
+  }
+
+  .logout {
+    top: 10px;
+    right: 30px;
+
+    font-size: 16px;
+    color: $color-primary;
   }
 
   #photo-info {

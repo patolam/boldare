@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {select, Store} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {Auth} from '../data/model';
-import {catchError, map, take} from 'rxjs/operators';
+import {AuthService} from '../../auth/shared/services/auth.service';
+
 
 @Injectable({
     providedIn: 'root'
@@ -11,19 +12,16 @@ import {catchError, map, take} from 'rxjs/operators';
 export class CanActivateProfile implements CanActivate {
 
     constructor(private store: Store<Auth>,
+                private authService: AuthService,
                 private router: Router) {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        return this.store.pipe(
-            select('auth'),
-            map(e => {
-                if (e) {
-                    return true;
-                }
-            }),
-            catchError(err => this.redirect())
-        )
+        if (this.authService.isTokenExpired()) {
+            this.redirect();
+        } else {
+            return true;
+        }
     }
 
     redirect(): Observable<boolean> {

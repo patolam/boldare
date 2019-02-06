@@ -1,5 +1,5 @@
 import {UserActions, UserActionTypes} from '../actions/client.actions';
-import {Person, User} from '../../../shared/data/model';
+import {Person, User} from '../data/model';
 
 export const initialState: User = {
     followed: false,

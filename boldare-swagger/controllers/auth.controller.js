@@ -25,7 +25,7 @@ exports.auth_save = function (req, res) {
     auth.setPassword(credentials.password);
 
     auth.save((err, auth) => {
-        res.send({auth: auth.toAuthJSON()});
+        res.send(auth.toAuthJSON());
     });
 };
 
@@ -47,15 +47,15 @@ exports.auth_login = function (req, res) {
     }
 
     passport.authenticate('local', {session: false}, (err, passportAuth, info) => {
-        // if (err) {
-        //     return next(err);
-        // }
+        if (err) {
+            return err;
+        }
 
         if (passportAuth) {
             const user = passportAuth;
             user.token = passportAuth.generateJWT();
 
-            return res.json({auth: passportAuth.toAuthJSON()});
+            return res.json(passportAuth.toAuthJSON());
         }
 
         return res.send(401);

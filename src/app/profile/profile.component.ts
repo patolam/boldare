@@ -1,12 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {UserService} from '../../shared/data/services/user.service';
-import {ProfileService} from '../../shared/data/services/profile.service';
+import {UserService} from '../shared/services/user.service';
+import {ProfileService} from '../shared/services/profile.service';
 import {select, Store} from '@ngrx/store';
 import {Follow, Like, LoadUser} from '../shared/actions/client.actions';
 import {take, takeUntil} from 'rxjs/operators';
-import {Comment} from '../../shared/data/model';
+import {Comment} from '../shared/data/model';
 import {AddComment} from '../shared/actions/profile.actions';
+import {Logout} from '../auth/shared/actions/auth.actions';
 
 @Component({
     selector: 'app-profile',
@@ -52,6 +53,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
             this.store.dispatch(new AddComment(comment));
         });
+    }
+
+    logout() {
+        this.store.dispatch(new Logout());
     }
 
     ngOnDestroy() {

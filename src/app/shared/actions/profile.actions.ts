@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Profile, Comment} from '../../../shared/data/model';
+import {Profile, Comment} from '../data/model';
 
 export enum ProfileActionTypes {
     LoadProfile = '[Profile] Load profile',

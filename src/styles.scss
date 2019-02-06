@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+html, body { height: 100%; }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Profile, User} from '../../../shared/data/model';
+import {Profile, User} from '../../shared/data/model';
 
 const ENTER_KEY = 'Enter';
 
@@ -24,6 +24,9 @@ export class AppProfileDetailsComponent {
     @Output()
     private comment: EventEmitter<string> = new EventEmitter();
 
+    @Output()
+    private logout: EventEmitter<void> = new EventEmitter();
+
     commentsHidden = false;
 
     shareVisible = false;
@@ -44,6 +47,10 @@ export class AppProfileDetailsComponent {
 
     toggleHidden() {
         this.commentsHidden = !this.commentsHidden;
+    }
+
+    performLogout() {
+        this.logout.emit();
     }
 
     addComment($event: KeyboardEvent, add: HTMLInputElement) {

@@ -1,20 +1,29 @@
-<form (ngSubmit)="login(name.value, password.value)">
-    <div>
-        <label for="name">Login</label>
-        <input id="name"
-               type="text"
-               name="name"
-               #name
-               required>
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input id="password"
-               name="password"
-               type="password"
-               #password
-               required>
-    </div>
+<div class="center">
+    <form #loginForm="ngForm">
+        <div class="inputs">
+            <mat-form-field>
+                <input matInput
+                       placeholder="Email"
+                       type="email"
+                       name="email"
+                       #email
+                       required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput
+                       placeholder="Password"
+                       type="password"
+                       name="password"
+                       #password
+                       required>
+            </mat-form-field>
+        </div>
 
-    <button type="submit">Login</button>
-</form>
+        <button mat-raised-button
+                type="submit"
+                color="primary"
+                (click)="login(email.value, password.value)">
+            Login
+        </button>
+    </form>
+</div>
